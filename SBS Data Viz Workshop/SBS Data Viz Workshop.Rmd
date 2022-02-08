@@ -37,15 +37,57 @@ style_duo_accent(
 )
 ```
 
+```{css, echo=FALSE}
+highlight {
+  color: #AD7a99
+}
+```
 
 ---
 
-## Why are you making a figure?
+## What Makes a Good Figure?
 
 --
-To tell a story.
+
+- Does not misrepresent the data.
+
 --
-To say something else
+- Tells a clear story
+  - Straightforward message, easy to read, hard to misinterpret.
+  
+--
+- Low cognitive load.
+ - Reader does not need to "think too hard" to understand the message
+- Does not mean 'less data', just clearer presentation
+  
+--
+- Accessible
+  - Colourblind-friendly
+  - Good contrast
+  - Accessible font choices
+  
+--
+- An accessible figure is a better figure.
 
 ---
 To say other things to other people.
+
+---
+class: centre
+
+## Come Along to `Hacky Hour`!
+
+> **2-4 pm on Tuesdays**, in person at Hacket Cafe
+
+> All skill levels welcome. Beginners encouraged!
+
+.pull-left[
+```{r , out.width="70%",  eval=TRUE, echo = FALSE, fig.align='center'}
+knitr::include_graphics("img/hackyhourlogo.png")
+```
+]
+
+.pull-right[
+<a class="twitter-timeline" data-width="400" data-height="400" data-theme="light" href="https://twitter.com/HackyHourUWA?ref_src=twsrc%5Etfw">Tweets by HackyHourUWA</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+
