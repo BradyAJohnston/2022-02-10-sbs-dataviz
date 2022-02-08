@@ -44,6 +44,25 @@ highlight {
 ```
 
 ---
+class: centre
+
+## Come Along to `Hacky Hour`!
+
+> **2-4 pm on Tuesdays**, in person at Hacket Cafe
+
+> All skill levels welcome. Beginners encouraged!
+
+.pull-left[
+```{r , out.width="70%",  eval=TRUE, echo = FALSE, fig.align='center'}
+knitr::include_graphics("img/hackyhourlogo.png")
+```
+]
+
+.pull-right[
+<a class="twitter-timeline" data-width="400" data-height="400" data-theme="light" href="https://twitter.com/HackyHourUWA?ref_src=twsrc%5Etfw">Tweets by HackyHourUWA</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+
+---
 
 ## What Makes a Good Figure?
 
@@ -72,22 +91,15 @@ highlight {
 ---
 To say other things to other people.
 
+
+
 ---
-class: centre
 
-## Come Along to `Hacky Hour`!
+## Understand the Audience
 
-> **2-4 pm on Tuesdays**, in person at Hacket Cafe
+```{r, eval = FALSE}
+print("hello world!")
+print("hello world!")
+print("hello world!") #<<
 
-> All skill levels welcome. Beginners encouraged!
-
-.pull-left[
-```{r , out.width="70%",  eval=TRUE, echo = FALSE, fig.align='center'}
-knitr::include_graphics("img/hackyhourlogo.png")
 ```
-]
-
-.pull-right[
-<a class="twitter-timeline" data-width="400" data-height="400" data-theme="light" href="https://twitter.com/HackyHourUWA?ref_src=twsrc%5Etfw">Tweets by HackyHourUWA</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-]
-
