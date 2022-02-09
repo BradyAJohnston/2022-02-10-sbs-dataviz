@@ -284,6 +284,560 @@ class: center, middle
 &gt; It just works.
 
 
+
+
+
+---
+  
+  count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+*library(patchwork)
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+*library(ggplot2)
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+*ggplot(mtcars, aes(mpg, wt, colour = factor(cyl)))
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_03_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+* geom_point()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_04_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+* theme_classic()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_05_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+* labs(title = "Some title goes here")
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_06_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+* labs(
+*   x = "Miles per Gallon",
+*   y = "Weight (kg)"
+* ) -&gt; p1
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+*ggplot(mtcars, aes(cyl, fill = factor(cyl)))
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_08_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+* geom_bar()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_09_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+* theme_classic()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_10_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+* labs(title = "A title here as well")
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_11_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+* labs(x = "Engine Cylinders") -&gt; p2
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+*wrap_plots(p1, p2)
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_13_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+wrap_plots(p1, p2) +
+* plot_layout(guides = "collect")
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_14_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+* plot_annotation(
+*   tag_levels = "A",
+*   tag_suffix = ")"
+* )
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_15_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+  plot_annotation(
+    tag_levels = "A",
+    tag_suffix = ")"
+  )
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_16_output-1.png" width="100%" /&gt;
+]
+
+&lt;style&gt;
+.panel1-test-plot-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-test-plot-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-test-plot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+  
+  count: false
+ 
+### First flipbook!
+.panel1-patchwork2-auto[
+
+```r
+*wrap_plots(p1, p2)
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_01_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-patchwork2-auto[
+
+```r
+wrap_plots(p1, p2) +
+* plot_layout(guides = "collect")
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_02_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-patchwork2-auto[
+
+```r
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+* plot_layout(ncol = 3)
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_03_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+### First flipbook!
+.panel1-patchwork2-auto[
+
+```r
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+  plot_layout(ncol = 3) +
+* plot_layout(ncol = 1)
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_04_output-1.png" width="100%" /&gt;
+]
+
+&lt;style&gt;
+.panel1-patchwork2-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-patchwork2-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-patchwork2-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
 ---
 List of packages
 - patchwork
