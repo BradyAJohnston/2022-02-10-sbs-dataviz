@@ -1,6 +1,6 @@
 ---
 title: "SBS Data Viz Workshop"
-subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
+subtitle: "💻 Data &</br> 📊 Data Viz"  
 author: 
   - "Brady Johnston"
 date: '`r Sys.Date()`'
@@ -14,6 +14,11 @@ output:
       ratio: 16:9
       countIncrementalSlides: false
 ---
+
+```{r}
+
+```
+
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
