@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>SBS Data Viz Workshop</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Brady Johnston" />
+    <meta name="date" content="2022-02-09" />
+    <script src="SBS-Data-Viz-Workshop_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# SBS Data Viz Workshop
+## ⚔️ xaringan +<br/>😎 xaringanthemer
+### Brady Johnston
+### 2022-02-09
+
+---
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+.highlight {
+  color: #AD7a99
+}
+.bold-black {
+  color: black
+  font-weight: bold
+}
+.remark-code{line-height: 1.5; font-size: 80%}
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+&lt;/style&gt;
+
+.pull-left[
+# Who am I?
+
+- Writing Thesis in Structural Biology  
+&lt;/br&gt;
+- Par-time data scientist at the Minderoo Foundation
+&lt;/br&gt;
+
+- Very interested in all things data-viz
+
+Twitter: [@bradyajohnston](https://twitter.com/bradyajohnston)
+]
+.pull-right[
+&lt;center&gt;
+&lt;img src = "img/poster1.2.png" width = "90%"&gt;
+]
+---
+# Who am I?
+.left-column[
+
+- Writing Thesis in Structural Biology  
+&lt;/br&gt;
+- Par-time data scientist at the Minderoo Foundation
+&lt;/br&gt;
+
+- Very interested in all things data-viz
+
+Twitter: [@bradyajohnston](https://twitter.com/bradyajohnston)
+
+]
+.right-column[
+&lt;center&gt;
+&lt;middle&gt;
+&lt;video width="100%"  autoplay loop&gt;
+  &lt;source src="https://thumbs.gfycat.com/JointSlimyAidi-mobile.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+]
+
+---
+class: center, middle
+## R Knowledge Rollercoaster
+
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png" alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it." height="450px"&gt;
+
+.pull-right[
+###### [@allisonhorst](https://twitter.com/allisonhorst)
+]
+
+---
+class:
+
+## Come Along to `Hacky Hour`!
+
+.pull-left[
+&gt; **2-4 pm on Tuesdays**, in person at Hacket Cafe
+
+&gt; All skill levels welcome. Beginners encouraged!
+
+&lt;center&gt;&lt;img src="img/hackyhourlogo.png" width="60%"&gt;
+]
+
+.pull-right[
+&lt;a class="twitter-timeline" data-width="100%" data-height="450" data-theme="light" href="https://twitter.com/HackyHourUWA?ref_src=twsrc%5Etfw"&gt;Tweets by HackyHourUWA&lt;/a&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt; 
+]
+
+---
+class: middle
+## What Makes a Good Figure?
+
+.pull-left[
+
+-  Does not misrepresent the data.
+
+- Tells a clear story
+  - Straightforward message, easy to read, hard to misinterpret.
+
+- Low cognitive load.
+ - The less thinking the better
+ - `low_cognitive_load != less_data`
+
+- Accessible
+  - Colourblind-friendly, good contrast, accesible font choices
+  - Accessible jargon &amp; language choices
+]
+
+.pull-right[
+&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.disquscdn.com%2Fimages%2F312f6566be9285726625197ca677d8419501b362917d662f5a3b00503e3f207d.gif&amp;f=1&amp;nofb=1"&gt;
+]
+
+
+
+---
+
+## Data Viz Principles - Understanding the Context
+
+- ###  WHO
+  - Who is the audience?
+
+- ###  WHAT
+  - What do you need them to know?
+
+- ###  HOW
+  - How are you going to communicate your point?
+
+---
+
+## WHO
+
+
+ - What is their familiarity with the topic?  
+  - Experts in your field, experts not in your field, undergrads, 
+  general public
+
+
+ 
+ - How much time to do you have?  
+  - Published in a paper, in a 5 / 10 / 40 minute talk, a poster
+
+
+
+ - Do you need to establish trust?
+  - Explain technique? Show previous work?
+
+ -  What is your relationship to them?
+  - Lab meeting, school presentation, presentation to public
+
+---
+## Design and Data
+
+#### Good design _reduces_ the cognitive load.
+
+--
+
+&gt;Cognitive load refers to the amount of effort that is exerted or required while
+reasoning and thinking. Any mental process, from memory to perception to
+language, creates a cognitive load because it requires energy and effort. When
+cognitive load is high, thought processes are potentially interfered with.
+
+&gt;_- Interaction Design Foundation_
+
+--
+
+&lt;/br&gt;
+#### The more you have to .highlight[think] about a figure, the higher the cognitive load.
+
+---
+class: center, middle
+
+ &lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&amp;f=1&amp;nofb=1" align="middle" height="600px"/&gt;
+ 
+---
+## An Example
+
+![](img/graph-screenshot.png)
+
+
+---
+
+## A Slightly Cleaner Example
+&lt;img src="SBS-Data-Viz-Workshop_files/figure-html/unnamed-chunk-2-1.png" width="100%" /&gt;
+
+
+
+---
+class: inverse, center, middle
+
+# Data and Design Resources
+
+---
+
+## Which plot to choose?
+
+[R Graph Gallery](https://www.r-graph-gallery.com/ggplot2-package.html) (My go-to when starting)
+
+&lt;iframe src="https://www.r-graph-gallery.com/index.html#portfolio_landing" width="90%" height="450px" frameBorder="0"&gt;&lt;/iframe&gt;
+---
+## Which plot to choose?
+
+Find inspiration on twitter ([#tidytuesday](https://twitter.com/search?q=%23tidytuesday&amp;src=typed_query)), follow blogs, in other papers.
+
+&lt;div class="taggbox-container" style="width:100%;height:100%;overflow: auto;"&gt;&lt;div class="taggbox-socialwall" data-wall-id="85017" view-url="https://widget.taggbox.com/85017"&gt;&lt;/div&gt;&lt;script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"&gt;&lt;/script&gt;&lt;/div&gt;
+---
+## What Colours to Choose?
+
+Generate your own colour palettes with [Coolors.co](https://coolors.co)
+
+&lt;center&gt;&lt;img src="img/coolors.png" height="450px"&gt;&lt;/center&gt;
+
+---
+## What Colours to Choose?
+
+Find other popular colour paletters on [Coolors.co](https://Coolors.co)
+
+&lt;center&gt;&lt;img src="img/coolors2.png" height="450px"&gt;&lt;/center&gt;
+
+---
+## What Colours to Choose?
+
+Lots of colour palette generating R packages.
+.pull-left[
+[`{fishualize}`](https://nschiett.github.io/fishualize/index.html)
+&lt;iframe src="https://nschiett.github.io/fishualize/index.html" width="100%" height="400px" frameBorder="0"&gt;&lt;/iframe&gt;
+]
+.pull-right[
+[`{MetBrewer}`](https://github.com/BlakeRMills/MetBrewer)
+
+![](img/metbrewer.png)
+]
+
+---
+class: inverse, center, middle
+
+# Getting Into The Code
+_Lets make some plots._
+
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.makeagif.com%2Fmedia%2F7-06-2015%2FDkY6g2.gif&amp;f=1&amp;nofb=1)
+---
+
+# General `{ggplot2}` tips
+
+If you are still learning you way around `{ggplot2}`, then use [`{esquisse}`](https://dreamrs.github.io/esquisse/)!
+&lt;center&gt;
+&lt;img src="https://dreamrs.github.io/esquisse/reference/figures/esquisse.gif" width="53%"&gt;
+
+---
+
+class: center, middle
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="500px" alt="Fuzzy cartoon monsters in white gloves and uniforms hanging multiple plots together on a wall, with an artist monster wearing a beret and smock directing them to the correct orientation. There is a blueprint plan on the wall showing how the plots should be arranged. Stylized title font reads 'patchwork - combine &amp; arrange your ggplots!'"&gt;
+.pull-right[
+###### [@allisonhorst](https://twitter.com/allisonhorst)
+]
+---
+## Tools for Assembling Plots
+
+- [{Patchwork}](https://patchwork.data-imaginist.com/) - Assembling separate plots into one overall figure.
+---
+## Patchwork
+
+&gt; It just works.
+
+
+---
+List of packages
+- patchwork
+- fishualize
+- ggsegment
+- 
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
