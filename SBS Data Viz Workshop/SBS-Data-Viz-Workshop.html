@@ -4,7 +4,7 @@
     <title>SBS Data Viz Workshop</title>
     <meta charset="utf-8" />
     <meta name="author" content="Brady Johnston" />
-    <meta name="date" content="2022-02-08" />
+    <meta name="date" content="2022-02-09" />
     <script src="SBS-Data-Viz-Workshop_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # SBS Data Viz Workshop
 ## ⚔️ xaringan +<br/>😎 xaringanthemer
 ### Brady Johnston
-### 2022-02-08
+### 2022-02-09
 
 ---
 
@@ -25,10 +25,20 @@ class: center, middle, inverse, title-slide
 
 
 &lt;style type="text/css"&gt;
-highlight {
+.highlight {
   color: #AD7a99
 }
 &lt;/style&gt;
+
+---
+class: center, middle
+## R Knowledge Rollercoaster
+
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png" alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it." height="450px"&gt;
+
+.pull-right[
+###### @allisonhorst
+]
 
 ---
 class: centre
@@ -48,30 +58,31 @@ class: centre
 ]
 
 ---
-
+class: middle
 ## What Makes a Good Figure?
 
---
+.pull-right[
+&lt;middle&gt;
+&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.disquscdn.com%2Fimages%2F312f6566be9285726625197ca677d8419501b362917d662f5a3b00503e3f207d.gif&amp;f=1&amp;nofb=1" align='center'&gt;&lt;/middle&gt;
+]
 
-- Does not misrepresent the data.
+.pull-left[
 
---
+-  Does not misrepresent the data.
+
 - Tells a clear story
   - Straightforward message, easy to read, hard to misinterpret.
-  
---
+
 - Low cognitive load.
- - Reader does not need to "think too hard" to understand the message
-- Does not mean 'less data', just clearer presentation
-  
---
+ - The less thinking the better
+ - `low_cognitive_load != less_data`
+
 - Accessible
-  - Colourblind-friendly
-  - Good contrast
-  - Accessible font choices
-  
---
-- An accessible figure is a better figure.
+  - Colourblind-friendly, good contrast, accesible font choices
+  - Accessible jargon &amp; language choices
+
+
+]
 
 ---
 To say other things to other people.
@@ -80,14 +91,77 @@ To say other things to other people.
 
 ---
 
-## Understand the Audience
+## Data Viz Principles - Understanding the Context
 
+- ###  WHO
+  - Who is the audience?
+
+- ###  WHAT
+  - What do you need them to know?
+
+- ###  HOW
+  - How are you going to communicate your point?
+
+---
+
+## WHO
+
+
+ - What is their familiarity with the topic?  
+  - Experts in your field, experts not in your field, undergrads, 
+  general public
+
+
+ 
+ - How much time to do you have?  
+  - Published in a paper, in a 5 / 10 / 40 minute talk, a poster
+
+
+
+ - Do you need to establish trust?
+  - Explain technique? Show previous work?
+
+ -  What is your relationship to them?
+  - Lab meeting, school presentation, presentation to public
+
+---
+## Design and Data
+
+Good design reduces the cognitive load.
+
+Bad design increases cognitive load, hides the key message in your data.
+---
+align: center
+ 
+
+ &lt;middle&gt;&lt;center&gt;&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&amp;f=1&amp;nofb=1" align="middle" height="600px"/&gt;&lt;/center&gt;&lt;/middle&gt;
+ 
+ 
+---
+class: center, middle
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="600px"&gt;
+
+---
+## Patchwork
+
+Joining together spearate figures.
+&gt; It just works.
+
+.pull-left[
 
 ```r
-print("hello world!")
-print("hello world!")
-*print("hello world!")
+library(tidyverse)
+mtcars %&gt;% 
+  ggplot(aes(wt, mpg, colour = factor(cyl))) + 
+           geom_point() + 
+           theme_classic()
 ```
+]
+.pull-right[
+&lt;img src="SBS-Data-Viz-Workshop_files/figure-html/patchwork1-1.png" width="100%" height="300px" /&gt;
+
+]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

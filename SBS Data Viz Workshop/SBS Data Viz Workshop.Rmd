@@ -38,10 +38,20 @@ style_duo_accent(
 ```
 
 ```{css, echo=FALSE}
-highlight {
+.highlight {
   color: #AD7a99
 }
 ```
+
+---
+class: center, middle
+## R Knowledge Rollercoaster
+
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png" alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it." height="450px">
+
+.pull-right[
+###### @allisonhorst
+]
 
 ---
 class: centre
@@ -63,30 +73,31 @@ knitr::include_graphics("img/hackyhourlogo.png")
 ]
 
 ---
-
+class: middle
 ## What Makes a Good Figure?
 
---
+.pull-right[
+<middle>
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.disquscdn.com%2Fimages%2F312f6566be9285726625197ca677d8419501b362917d662f5a3b00503e3f207d.gif&f=1&nofb=1" align='center'></middle>
+]
 
-- Does not misrepresent the data.
+.pull-left[
 
---
+-  Does not misrepresent the data.
+
 - Tells a clear story
   - Straightforward message, easy to read, hard to misinterpret.
-  
---
+
 - Low cognitive load.
- - Reader does not need to "think too hard" to understand the message
-- Does not mean 'less data', just clearer presentation
-  
---
+ - The less thinking the better
+ - `low_cognitive_load != less_data`
+
 - Accessible
-  - Colourblind-friendly
-  - Good contrast
-  - Accessible font choices
-  
---
-- An accessible figure is a better figure.
+  - Colourblind-friendly, good contrast, accesible font choices
+  - Accessible jargon & language choices
+
+
+]
 
 ---
 To say other things to other people.
@@ -95,11 +106,77 @@ To say other things to other people.
 
 ---
 
-## Understand the Audience
+## Data Viz Principles - Understanding the Context
 
-```{r, eval = FALSE}
-print("hello world!")
-print("hello world!")
-print("hello world!") #<<
+- ###  WHO
+  - Who is the audience?
 
+- ###  WHAT
+  - What do you need them to know?
+
+- ###  HOW
+  - How are you going to communicate your point?
+
+---
+
+## WHO
+
+
+ - What is their familiarity with the topic?  
+  - Experts in your field, experts not in your field, undergrads, 
+  general public
+
+
+ 
+ - How much time to do you have?  
+  - Published in a paper, in a 5 / 10 / 40 minute talk, a poster
+
+
+
+ - Do you need to establish trust?
+  - Explain technique? Show previous work?
+
+ -  What is your relationship to them?
+  - Lab meeting, school presentation, presentation to public
+
+---
+## Design and Data
+
+Good design reduces the cognitive load.
+
+Bad design increases cognitive load, hides the key message in your data.
+---
+align: center
+ 
+
+ <middle><center><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&f=1&nofb=1" align="middle" height="600px"/></center></middle>
+ 
+ 
+---
+class: center, middle
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="600px">
+
+---
+## Patchwork
+
+Joining together separate figures.
+> It just works.
+
+.pull-left[
+```{r patchwork1, fig.show="hide", warning = FALSE, highlight=TRUE}
+library(tidyverse)
+mtcars %>% 
+  ggplot(aes(wt, mpg, colour = factor(cyl))) + 
+           geom_point() + 
+           theme_classic()
 ```
+]
+.pull-right[
+```{r, echo=FALSE, fig.height=3, out.height="300px"}
+knitr::include_graphics(
+  knitr::fig_chunk("patchwork1", "png")
+)
+```
+
+]
+
