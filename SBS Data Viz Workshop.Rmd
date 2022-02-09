@@ -1,0 +1,305 @@
+---
+title: "SBS Data Viz Workshop"
+subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
+author: 
+  - "Brady Johnston"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+
+library(tidyverse)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#6dc0d5",
+  secondary_color = "#8cdfd6",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{css, echo=FALSE}
+.highlight {
+  color: #AD7a99
+}
+.bold-black {
+  color: black
+  font-weight: bold
+}
+```
+
+---
+class: center, middle
+## R Knowledge Rollercoaster
+
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_rollercoaster.png" alt="An illustrated cartoon graph with “How much I think I know about R” on the y-axis, with axis labels at “I know nothing” and “I know lots”, versus “time” on the x-axis. The line varies widely between the two. Above the line are emoji-like faces, showing uncertainty and hope early on. At a second peak is the label “join R community on twitter”, with a “mind-blown” emoji face. The line quickly descends, but with a happy looking emoji character sliding down it." height="450px">
+
+.pull-right[
+###### @allisonhorst
+]
+
+---
+class: centre
+
+## Come Along to `Hacky Hour`!
+
+> **2-4 pm on Tuesdays**, in person at Hacket Cafe
+
+> All skill levels welcome. Beginners encouraged!
+
+.pull-left[
+```{r , out.width="70%",  eval=TRUE, echo = FALSE, fig.align='center'}
+knitr::include_graphics("img/hackyhourlogo.png")
+```
+]
+
+.pull-right[
+<a class="twitter-timeline" data-width="400" data-height="400" data-theme="light" href="https://twitter.com/HackyHourUWA?ref_src=twsrc%5Etfw">Tweets by HackyHourUWA</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+]
+
+---
+class: middle
+## What Makes a Good Figure?
+
+.pull-left[
+
+-  Does not misrepresent the data.
+
+- Tells a clear story
+  - Straightforward message, easy to read, hard to misinterpret.
+
+- Low cognitive load.
+ - The less thinking the better
+ - `low_cognitive_load != less_data`
+
+- Accessible
+  - Colourblind-friendly, good contrast, accesible font choices
+  - Accessible jargon & language choices
+]
+
+.pull-right[
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.disquscdn.com%2Fimages%2F312f6566be9285726625197ca677d8419501b362917d662f5a3b00503e3f207d.gif&f=1&nofb=1">
+]
+
+
+
+---
+
+## Data Viz Principles - Understanding the Context
+
+- ###  WHO
+  - Who is the audience?
+
+- ###  WHAT
+  - What do you need them to know?
+
+- ###  HOW
+  - How are you going to communicate your point?
+
+---
+
+## WHO
+
+
+ - What is their familiarity with the topic?  
+  - Experts in your field, experts not in your field, undergrads, 
+  general public
+
+
+ 
+ - How much time to do you have?  
+  - Published in a paper, in a 5 / 10 / 40 minute talk, a poster
+
+
+
+ - Do you need to establish trust?
+  - Explain technique? Show previous work?
+
+ -  What is your relationship to them?
+  - Lab meeting, school presentation, presentation to public
+
+---
+## Design and Data
+
+#### Good design _reduces_ the cognitive load.
+
+--
+
+>Cognitive load refers to the amount of effort that is exerted or required while
+reasoning and thinking. Any mental process, from memory to perception to
+language, creates a cognitive load because it requires energy and effort. When
+cognitive load is high, thought processes are potentially interfered with.
+
+>_- Interaction Design Foundation_
+
+--
+
+</br>
+#### The more you have to .highlight[think] about a figure, the higher the cognitive load.
+
+---
+class: center, middle
+
+ <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&f=1&nofb=1" align="middle" height="600px"/>
+ 
+---
+## An Example
+
+![](img/graph-screenshot.png)
+
+
+---
+
+## A Slightly Cleaner Example
+```{r, echo = FALSE, fig.height=4.5}
+df <- readxl::read_xlsx("data/form_responses.xlsx")
+
+answer_levels <- c(
+  "What is R? You mean the letter?", 
+  'I can run `print("hello world!")`', 
+  'I can make some simple data analysis scripts.',
+  "I've made 'complicated' analysis scripts.",
+  "I have created reusable data analysis scripts, for different data sets.",
+  "I have created my own R packages.",
+  "I am the wealth of all R knowledge, Hadley Wickham asks me perosnally for advice on his pacakges."
+)
+
+
+my_colours <- MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7)
+
+df %>% 
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %>% 
+  rename(
+    answer = 2
+  ) %>% 
+  mutate(
+    answer = factor(answer, levels = answer_levels), 
+  ) %>% 
+  group_by(answer) %>% 
+  count(answer, .drop = FALSE) %>% 
+  ggplot(aes(x = n, y = answer, fill = answer)) + 
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels, 
+    labels = str_wrap(answer_levels, 50)
+  ) + 
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.1)), 
+    breaks = c(0, 2, 4, 6)
+  ) +
+  labs(
+    y = "", 
+    x = "", 
+    title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
+    ) + 
+  scale_fill_manual(values = my_colours) + 
+  theme_classic(base_size = 13) +
+  geom_text(aes(label = n, x = n + 0.2), size = 5) + 
+  theme(
+    plot.title.position = "plot",
+    axis.text.y = element_text(hjust = 0, size = 9), 
+    axis.ticks.y = element_blank()
+  )
+```
+
+
+---
+
+class: center, middle
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="600px">
+
+---
+class: inverse, center, middle
+
+# Data and Design Resources
+
+---
+
+## Which plot to choose?
+
+[R Graph Gallery](https://www.r-graph-gallery.com/ggplot2-package.html)
+
+<iframe src="https://www.r-graph-gallery.com/index.html" width="90%" height="450px" frameBorder="0"></iframe>
+---
+## Which plot to choose?
+
+Find inspiration on twitter ([#tidytuesday](https://twitter.com/search?q=%23tidytuesday&src=typed_query)), follow blogs, in other papers.
+
+<div class="taggbox-container" style="width:100%;height:100%;overflow: auto;"><div class="taggbox-socialwall" data-wall-id="85017" view-url="https://widget.taggbox.com/85017"></div><script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script></div>
+---
+## What Colours to Choose?
+
+Generate your own colour palettes with [Coolors.co](https://coolors.co)
+
+<center><img src="img/coolors.png" height="450px"></center>
+
+---
+## What Colours to Choose?
+
+Find other popular colour paletters on [Coolors.co](https://Coolors.co)
+
+<center><img src="img/coolors2.png" height="450px"></center>
+
+---
+## What Colours to Choose?
+
+Lots of colour palette generating R packages.
+.pull-left[
+[`{fishualize}`](https://nschiett.github.io/fishualize/index.html)
+<iframe src="https://nschiett.github.io/fishualize/index.html" width="100%" height="400px" frameBorder="0"></iframe>
+]
+.pull-right[
+[`{MetBrewer}`](https://github.com/BlakeRMills/MetBrewer)
+
+![](img/metbrewer.png)
+]
+
+---
+
+
+
+## Patchwork
+
+Joining together separate figures.
+> It just works.
+
+.pull-left[
+```{r patchwork1, fig.show="hide", warning = FALSE, highlight=TRUE}
+
+mtcars %>% 
+  ggplot(aes(wt, mpg, colour = factor(cyl))) + 
+           geom_point() + 
+           theme_classic()
+```
+]
+.pull-right[
+```{r, echo=FALSE, fig.height=3, out.height="300px"}
+knitr::include_graphics(
+  knitr::fig_chunk("patchwork1", "png")
+)
+```
+
+]
+

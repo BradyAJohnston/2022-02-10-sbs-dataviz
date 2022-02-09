@@ -28,6 +28,10 @@ class: center, middle, inverse, title-slide
 .highlight {
   color: #AD7a99
 }
+.bold-black {
+  color: black
+  font-weight: bold
+}
 &lt;/style&gt;
 
 ---
@@ -61,11 +65,6 @@ class: centre
 class: middle
 ## What Makes a Good Figure?
 
-.pull-right[
-&lt;middle&gt;
-&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.disquscdn.com%2Fimages%2F312f6566be9285726625197ca677d8419501b362917d662f5a3b00503e3f207d.gif&amp;f=1&amp;nofb=1" align='center'&gt;&lt;/middle&gt;
-]
-
 .pull-left[
 
 -  Does not misrepresent the data.
@@ -80,12 +79,11 @@ class: middle
 - Accessible
   - Colourblind-friendly, good contrast, accesible font choices
   - Accessible jargon &amp; language choices
-
-
 ]
 
----
-To say other things to other people.
+.pull-right[
+&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuploads.disquscdn.com%2Fimages%2F312f6566be9285726625197ca677d8419501b362917d662f5a3b00503e3f207d.gif&amp;f=1&amp;nofb=1"&gt;
+]
 
 
 
@@ -127,21 +125,94 @@ To say other things to other people.
 ---
 ## Design and Data
 
-Good design reduces the cognitive load.
+#### Good design _reduces_ the cognitive load.
 
-Bad design increases cognitive load, hides the key message in your data.
----
-align: center
- 
+--
 
- &lt;middle&gt;&lt;center&gt;&lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&amp;f=1&amp;nofb=1" align="middle" height="600px"/&gt;&lt;/center&gt;&lt;/middle&gt;
- 
+&gt;Cognitive load refers to the amount of effort that is exerted or required while
+reasoning and thinking. Any mental process, from memory to perception to
+language, creates a cognitive load because it requires energy and effort. When
+cognitive load is high, thought processes are potentially interfered with.
+
+&gt;_- Interaction Design Foundation_
+
+--
+
+&lt;/br&gt;
+#### The more you have to .highlight[think] about a figure, the higher the cognitive load.
+
+---
+class: center, middle
+
+ &lt;img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&amp;f=1&amp;nofb=1" align="middle" height="600px"/&gt;
  
 ---
+## An Example
+
+![](img/graph-screenshot.png)
+
+
+---
+
+## A Slightly Cleaner Example
+&lt;img src="SBS-Data-Viz-Workshop_files/figure-html/unnamed-chunk-3-1.png" width="100%" /&gt;
+
+
+---
+
 class: center, middle
 &lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="600px"&gt;
 
 ---
+class: inverse, center, middle
+
+# Data and Design Resources
+
+---
+
+## Which plot to choose?
+
+[R Graph Gallery](https://www.r-graph-gallery.com/ggplot2-package.html)
+
+&lt;iframe src="https://www.r-graph-gallery.com/index.html" width="90%" height="450px" frameBorder="0"&gt;&lt;/iframe&gt;
+---
+## Which plot to choose?
+
+Find inspiration on twitter ([#tidytuesday](https://twitter.com/search?q=%23tidytuesday&amp;src=typed_query)), follow blogs, in other papers.
+
+&lt;div class="taggbox-container" style="width:100%;height:100%;overflow: auto;"&gt;&lt;div class="taggbox-socialwall" data-wall-id="85017" view-url="https://widget.taggbox.com/85017"&gt;&lt;/div&gt;&lt;script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"&gt;&lt;/script&gt;&lt;/div&gt;
+---
+## What Colours to Choose?
+
+Generate your own colour palettes with [Coolors.co](https://coolors.co)
+
+&lt;center&gt;&lt;img src="img/coolors.png" height="450px"&gt;&lt;/center&gt;
+
+---
+## What Colours to Choose?
+
+Find other popular colour paletters on [Coolors.co](https://Coolors.co)
+
+&lt;center&gt;&lt;img src="img/coolors2.png" height="450px"&gt;&lt;/center&gt;
+
+---
+## What Colours to Choose?
+
+Lots of colour palette generating R packages.
+.pull-left[
+[`{fishualize}`](https://nschiett.github.io/fishualize/index.html)
+&lt;iframe src="https://nschiett.github.io/fishualize/index.html" width="100%" height="400px" frameBorder="0"&gt;&lt;/iframe&gt;
+]
+.pull-right[
+[`{MetBrewer}`](https://github.com/BlakeRMills/MetBrewer)
+
+![](img/metbrewer.png)
+]
+
+---
+
+
+
 ## Patchwork
 
 Joining together separate figures.
@@ -150,7 +221,6 @@ Joining together separate figures.
 .pull-left[
 
 ```r
-library(tidyverse)
 mtcars %&gt;% 
   ggplot(aes(wt, mpg, colour = factor(cyl))) + 
            geom_point() + 
