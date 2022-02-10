@@ -2,7 +2,7 @@
 title: "SBS Data Viz Workshop"
 subtitle: "💻 Data &</br> 📊 Data Viz"  
 author: 
-  - "Brady Johnston"
+  - 'Brady Johnston</br>🐦 @bradyajohnston'
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
@@ -14,10 +14,6 @@ output:
       ratio: 16:9
       countIncrementalSlides: false
 ---
-
-```{r}
-
-```
 
 
 ```{r setup, include=FALSE}
@@ -60,6 +56,7 @@ style_duo_accent(
 }
 ```
 
+
 .pull-left[
 # Who am I?
 
@@ -71,11 +68,14 @@ style_duo_accent(
 - Very interested in all things data-viz
 
 Twitter: [@bradyajohnston](https://twitter.com/bradyajohnston)
+
+<iframe src="https://molstar.org/viewer/?pdb=4ozs&hide-controls=1" width="100%" height="250px" frameBorder="0"></iframe>
 ]
 .pull-right[
 <center>
 <img src = "img/poster1.2.png" width = "90%">
 ]
+
 ---
 # Who am I?
 .left-column[
@@ -154,6 +154,7 @@ class: middle
 ---
 
 ## Data Viz Principles - Understanding the Context
+.pull-left[
 
 - ###  WHO
   - Who is the audience?
@@ -163,6 +164,10 @@ class: middle
 
 - ###  HOW
   - How are you going to communicate your point?
+]
+.pull-right[
+<middle><center><img src="https://i.imgflip.com/4/2baxar.jpg">
+]
 
 ---
 
@@ -209,6 +214,11 @@ cognitive load is high, thought processes are potentially interfered with.
 class: center, middle
 
  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.optimalworkshop.com%2Fwp-content%2Fuploads%2F2021%2F03%2FUnderstanding-the-Gestalt-Principles-of-perception-for-UX-1.png&f=1&nofb=1" align="middle" height="600px"/>
+ 
+ 
+---
+<iframe src="https://www.canva.com/design/DAEEH3fm7_4/mOV7EF13bg7faf_JZ_lrKw/view#22" borderColor="0"><iframe>
+ 
  
 ---
 ## An Example
@@ -349,53 +359,6 @@ class: center, middle
 ## Patchwork
 
 > It just works.
-
-```{r, echo=FALSE}
-library(flipbookr)
-```
-
-```{r test-plot, fig.height=5, include=FALSE}
-library(patchwork)
-library(ggplot2)
-
-ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) + 
-  geom_point() + 
-  theme_classic() + 
-  labs(title = "Some title goes here") + 
-  labs(
-    x = "Miles per Gallon", 
-    y = "Weight (kg)"
-  ) -> p1
-
-ggplot(mtcars, aes(cyl, fill = factor(cyl))) + 
-  geom_bar() + 
-  theme_classic() + 
-  labs(title = "A title here as well") + 
-  labs(x = "Engine Cylinders") -> p2
-
-wrap_plots(p1, p2) + 
-  plot_layout(guides = "collect") + 
-  plot_annotation(
-    tag_levels = "A", 
-    tag_suffix = ")"
-  )
-
-```
-
----
-  
-  `r chunk_reveal(chunk_name = "test-plot", title = "### First flipbook!")`
-
-```{r patchwork2, include=FALSE, fig.height=5}
-wrap_plots(p1, p2) + 
-  plot_layout(guides = "collect") + 
-  plot_layout(ncol = 3) +
-  plot_layout(ncol = 1)
-```
-
----
-  
-  `r chunk_reveal(chunk_name = "patchwork2", title = "### First flipbook!")`
 
 
 ---
