@@ -7,11 +7,7 @@ oz_states <- ozmaps::ozmap_states
 wa <- ozmaps::ozmap_states %>% 
   filter(NAME == "Western Australia")
 
-ggplot(oz_states) + 
-  geom_sf()
-
 base_plot <- ggplot(wa) +
-# ggplot(wa) + 
   geom_sf() +
   theme_linedraw() + 
   coord_sf(
@@ -19,7 +15,7 @@ base_plot <- ggplot(wa) +
     crs = sf::st_crs(3112)
     ) + 
   labs(
-    title = "Fortess WA"
+    title = "Fortress WA"
   ) + 
   theme(
     panel.background = element_rect(fill = "skyblue")
@@ -43,7 +39,7 @@ base_plot +
   coord_sf(
     xlim = c(110, 118), 
     ylim = c(-35, -25)
-  )# -> my_map
+  )-> my_map
 
 
 ggplot(data, aes(y = port)) + 
@@ -59,11 +55,11 @@ patchwork::wrap_plots(barplot, my_map) +
 
 
 patchwork::wrap_plots(barplot, my_map, barplot + theme_linedraw()) + 
-  plot_layout(
+  patchwork::plot_layout(
     design = "
     AAB
     CCC"
   ) + 
-  plot_annotation(
+  patchwork::plot_annotation(
     tag_levels = "A"
   )
