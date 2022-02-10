@@ -48,7 +48,7 @@ style_duo_accent(
   color: black
   font-weight: bold
 }
-.remark-code{line-height: 1.5; font-size: 80%}
+.remark-code{line-height: 1.5; font-size: 60%}
 @media print {
   .has-continuation {
     display: block;
@@ -217,11 +217,25 @@ class: center, middle
  
  
 ---
-<iframe src="https://www.canva.com/design/DAEEH3fm7_4/mOV7EF13bg7faf_JZ_lrKw/view#22" borderColor="0"><iframe>
+
+## Gestalt Principle
+
+- Pre-processing of the information that the brain uses
+</br>
+- Use these principles to create an _information-heirachy_.
+</br>
+</br>
+
+<center>
+<middle>
+<img src="img/gestalt-screesnshot.png" width="70%">
+</center>
+</middle>
  
  
+
 ---
-## An Example
+## Reducing Cognitive Load
 
 ![](img/graph-screenshot.png)
 
@@ -229,7 +243,8 @@ class: center, middle
 ---
 
 ## A Slightly Cleaner Example
-```{r, echo = FALSE, fig.height=4.5}
+
+```{r forms-example, echo = FALSE, fig.height=4.5}
 df <- readxl::read_xlsx("data/form_responses.xlsx")
 
 answer_levels <- c(
@@ -241,10 +256,10 @@ answer_levels <- c(
   "I have created my own R packages.",
   "I am the wealth of all R knowledge, Hadley Wickham asks me perosnally for advice on his pacakges."
 )
+```
 
 
-my_colours <- MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7)
-
+```{r forms-example-plot, echo = FALSE, fig.height=4.5}
 df %>% 
   select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %>% 
   rename(
@@ -271,7 +286,7 @@ df %>%
     x = "", 
     title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
     ) + 
-  scale_fill_manual(values = my_colours) + 
+  scale_fill_manual(values = MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7)) + 
   theme_classic(base_size = 13) +
   geom_text(aes(label = n, x = n + 0.2), size = 5) + 
   theme(
@@ -280,6 +295,10 @@ df %>%
     axis.ticks.y = element_blank()
   )
 ```
+
+---
+
+`r flipbookr::chunk_reveal(chunk_name = "forms-example-plot", title = "## How did I do it?")`
 
 
 
@@ -346,21 +365,79 @@ If you are still learning you way around `{ggplot2}`, then use [`{esquisse}`](ht
 
 ---
 
-class: center, middle
-<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="500px" alt="Fuzzy cartoon monsters in white gloves and uniforms hanging multiple plots together on a wall, with an artist monster wearing a beret and smock directing them to the correct orientation. There is a blueprint plan on the wall showing how the plots should be arranged. Stylized title font reads 'patchwork - combine & arrange your ggplots!'">
+
+---
+## Assemble Whole Figures
+.pull-left[
+
+- Stitch together multiple plots, into one figure. [`{Patchwork}`](https://patchwork.data-imaginist.com/) takes care of the alignments, lettering and layout.
+
+- _Just Works_.
+
+- Alternatives: [`{cowplot}`](https://wilkelab.org/cowplot/)
+]
 .pull-right[
+
+<middle><center><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="300" alt="Fuzzy cartoon monsters in white gloves and uniforms hanging multiple plots together on a wall, with an artist monster wearing a beret and smock directing them to the correct orientation. There is a blueprint plan on the wall showing how the plots should be arranged. Stylized title font reads 'patchwork - combine & arrange your ggplots!'">
+
 ###### [@allisonhorst](https://twitter.com/allisonhorst)
 ]
+
+
+```{r, echo=FALSE}
+library(flipbookr)
+```
+
+```{r test-plot, fig.height=5, include=FALSE}
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) + 
+  geom_point() + 
+  theme_classic() + 
+  labs(title = "Some title goes here") + 
+  labs(
+    x = "Miles per Gallon", 
+    y = "Weight (kg)"
+  ) -> p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) + 
+  geom_bar() + 
+  theme_classic() + 
+  labs(title = "A title here as well") + 
+  labs(x = "Engine Cylinders") -> p2
+
+wrap_plots(p1, p2) + 
+  plot_layout(guides = "collect") + 
+  plot_annotation(
+    tag_levels = "A", 
+    tag_suffix = ")"
+  )
+
+```
+
 ---
-## Tools for Assembling Plots
+  
+  `r chunk_reveal(chunk_name = "test-plot", title = "## Assembling Plots")`
 
-- [{Patchwork}](https://patchwork.data-imaginist.com/) - Assembling separate plots into one overall figure.
+```{r patchwork2, include=FALSE, fig.height=5}
+wrap_plots(p1, p2) + 
+  plot_layout(guides = "collect") + 
+  plot_layout(design = "A##B") +
+  plot_layout(ncol = 1)
+```
+
 ---
-## Patchwork
+  
+  `r chunk_reveal(chunk_name = "patchwork2", title = "## Controlling the Layout")`
 
-> It just works.
 
+---
+## What can you {ggplot2} do?
 
+Have a look at https://exts.ggplot2.tidyverse.org/gallery/
+
+<iframe src="https://exts.ggplot2.tidyverse.org/gallery/" width="100%" height="450px" borderColor="0"><iframe>
 ---
 List of packages
 - patchwork

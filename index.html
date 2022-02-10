@@ -33,7 +33,7 @@ class: center, middle, inverse, title-slide
   color: black
   font-weight: bold
 }
-.remark-code{line-height: 1.5; font-size: 80%}
+.remark-code{line-height: 1.5; font-size: 60%}
 @media print {
   .has-continuation {
     display: block;
@@ -202,11 +202,25 @@ class: center, middle
  
  
 ---
-&lt;iframe src="https://www.canva.com/design/DAEEH3fm7_4/mOV7EF13bg7faf_JZ_lrKw/view#22" borderColor="0"&gt;&lt;iframe&gt;
+
+## Gestalt Principle
+
+- Pre-processing of the information that the brain uses
+&lt;/br&gt;
+- Use these principles to create an _information-heirachy_.
+&lt;/br&gt;
+&lt;/br&gt;
+
+&lt;center&gt;
+&lt;middle&gt;
+&lt;img src="img/gestalt-screesnshot.png" width="70%"&gt;
+&lt;/center&gt;
+&lt;/middle&gt;
  
  
+
 ---
-## An Example
+## Reducing Cognitive Load
 
 ![](img/graph-screenshot.png)
 
@@ -214,7 +228,639 @@ class: center, middle
 ---
 
 ## A Slightly Cleaner Example
-&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="100%" /&gt;
+
+
+
+
+&lt;img src="index_files/figure-html/forms-example-plot-1.png" width="100%" /&gt;
+
+---
+
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+*df
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+
+```
+## # A tibble: 15 x 28
+##       ID `Start time`        `Completion time`   Email  Name  `Total points`
+##    &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;  &lt;chr&gt; &lt;lgl&gt;         
+##  1     1 2022-01-31 09:52:56 2022-01-31 10:02:10 21508~ Kate~ NA            
+##  2     2 2022-01-31 09:44:47 2022-01-31 10:06:57 21485~ Jaco~ NA            
+##  3     3 2022-01-31 10:14:07 2022-01-31 10:34:10 20768~ Katr~ NA            
+##  4     4 2022-01-31 11:44:41 2022-01-31 11:49:26 22841~ Anni~ NA            
+##  5     5 2022-02-01 07:06:52 2022-02-01 07:12:03 22209~ Thom~ NA            
+##  6     6 2022-02-01 13:20:54 2022-02-01 13:25:20 21981~ Jane~ NA            
+##  7     7 2022-02-02 09:20:27 2022-02-02 09:22:16 22846~ Mega~ NA            
+##  8     8 2022-02-07 15:28:14 2022-02-07 15:50:36 22685~ Moni~ NA            
+##  9     9 2022-02-07 16:11:58 2022-02-07 16:12:55 22604~ Jarr~ NA            
+## 10    10 2022-02-07 16:25:10 2022-02-07 16:27:09 10522~ Gabr~ NA            
+## 11    11 2022-02-07 16:16:03 2022-02-07 16:28:58 22823~ Junr~ NA            
+## 12    12 2022-02-08 08:01:51 2022-02-08 08:03:31 21979~ Benj~ NA            
+## 13    13 2022-02-08 16:00:38 2022-02-08 16:10:26 22176~ Ryan~ NA            
+## 14    14 2022-02-08 21:30:57 2022-02-08 21:32:32 22947~ Kris~ NA            
+## 15    15 2022-02-09 12:48:09 2022-02-09 12:52:16 22690~ Mitc~ NA            
+## # ... with 22 more variables: `Quiz feedback` &lt;lgl&gt;,
+## #   `How would you describe (be kind to yourself!) your skill levels in R?` &lt;chr&gt;,
+## #   `Points - How would you describe (be kind to yourself!) your skill levels in R?` &lt;lgl&gt;,
+## #   `Feedback - How would you describe (be kind to yourself!) your skill levels in R?` &lt;lgl&gt;,
+## #   `How would you describe (be kind to yourself!) your familiarity with \`ggplot2\`?` &lt;chr&gt;,
+## #   `Points - How would you describe (be kind to yourself!) your familiarity with \`ggplot2\`?` &lt;lgl&gt;,
+## #   `Feedback - How would you describe (be kind to yourself!) your familiarity with \`ggplot2\`?` &lt;lgl&gt;, ...
+```
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+* select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`)
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+
+```
+## # A tibble: 15 x 2
+##       ID `How would you describe (be kind to yourself!) your skill levels ~`
+##    &lt;dbl&gt; &lt;chr&gt;                                                              
+##  1     1 "I've made 'complicated' analysis scripts."                        
+##  2     2 "I can make some simple data analysis scripts."                    
+##  3     3 "I've made 'complicated' analysis scripts."                        
+##  4     4 "I can make some simple data analysis scripts."                    
+##  5     5 "What is R? You mean the letter?"                                  
+##  6     6 "I can make some simple data analysis scripts."                    
+##  7     7 "I can make some simple data analysis scripts."                    
+##  8     8 "I've made 'complicated' analysis scripts."                        
+##  9     9 "I have created reusable data analysis scripts, for different data~
+## 10    10 "I can run `print(\"hello world!\")`"                              
+## 11    11 "I can make some simple data analysis scripts."                    
+## 12    12 "I can make some simple data analysis scripts."                    
+## 13    13 "I can make some simple data analysis scripts."                    
+## 14    14 "I've made 'complicated' analysis scripts."                        
+## 15    15 "I've made 'complicated' analysis scripts."
+```
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+* rename(
+*   answer = 2
+* )
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+
+```
+## # A tibble: 15 x 2
+##       ID answer                                                             
+##    &lt;dbl&gt; &lt;chr&gt;                                                              
+##  1     1 "I've made 'complicated' analysis scripts."                        
+##  2     2 "I can make some simple data analysis scripts."                    
+##  3     3 "I've made 'complicated' analysis scripts."                        
+##  4     4 "I can make some simple data analysis scripts."                    
+##  5     5 "What is R? You mean the letter?"                                  
+##  6     6 "I can make some simple data analysis scripts."                    
+##  7     7 "I can make some simple data analysis scripts."                    
+##  8     8 "I've made 'complicated' analysis scripts."                        
+##  9     9 "I have created reusable data analysis scripts, for different data~
+## 10    10 "I can run `print(\"hello world!\")`"                              
+## 11    11 "I can make some simple data analysis scripts."                    
+## 12    12 "I can make some simple data analysis scripts."                    
+## 13    13 "I can make some simple data analysis scripts."                    
+## 14    14 "I've made 'complicated' analysis scripts."                        
+## 15    15 "I've made 'complicated' analysis scripts."
+```
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+* mutate(
+*   answer = factor(answer, levels = answer_levels),
+* )
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+
+```
+## # A tibble: 15 x 2
+##       ID answer                                                             
+##    &lt;dbl&gt; &lt;fct&gt;                                                              
+##  1     1 "I've made 'complicated' analysis scripts."                        
+##  2     2 "I can make some simple data analysis scripts."                    
+##  3     3 "I've made 'complicated' analysis scripts."                        
+##  4     4 "I can make some simple data analysis scripts."                    
+##  5     5 "What is R? You mean the letter?"                                  
+##  6     6 "I can make some simple data analysis scripts."                    
+##  7     7 "I can make some simple data analysis scripts."                    
+##  8     8 "I've made 'complicated' analysis scripts."                        
+##  9     9 "I have created reusable data analysis scripts, for different data~
+## 10    10 "I can run `print(\"hello world!\")`"                              
+## 11    11 "I can make some simple data analysis scripts."                    
+## 12    12 "I can make some simple data analysis scripts."                    
+## 13    13 "I can make some simple data analysis scripts."                    
+## 14    14 "I've made 'complicated' analysis scripts."                        
+## 15    15 "I've made 'complicated' analysis scripts."
+```
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+* group_by(answer)
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+
+```
+## # A tibble: 15 x 2
+## # Groups:   answer [5]
+##       ID answer                                                             
+##    &lt;dbl&gt; &lt;fct&gt;                                                              
+##  1     1 "I've made 'complicated' analysis scripts."                        
+##  2     2 "I can make some simple data analysis scripts."                    
+##  3     3 "I've made 'complicated' analysis scripts."                        
+##  4     4 "I can make some simple data analysis scripts."                    
+##  5     5 "What is R? You mean the letter?"                                  
+##  6     6 "I can make some simple data analysis scripts."                    
+##  7     7 "I can make some simple data analysis scripts."                    
+##  8     8 "I've made 'complicated' analysis scripts."                        
+##  9     9 "I have created reusable data analysis scripts, for different data~
+## 10    10 "I can run `print(\"hello world!\")`"                              
+## 11    11 "I can make some simple data analysis scripts."                    
+## 12    12 "I can make some simple data analysis scripts."                    
+## 13    13 "I can make some simple data analysis scripts."                    
+## 14    14 "I've made 'complicated' analysis scripts."                        
+## 15    15 "I've made 'complicated' analysis scripts."
+```
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+* count(answer, .drop = FALSE)
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+
+```
+## # A tibble: 7 x 2
+## # Groups:   answer [7]
+##   answer                                                                   n
+##   &lt;fct&gt;                                                                &lt;int&gt;
+## 1 "What is R? You mean the letter?"                                        1
+## 2 "I can run `print(\"hello world!\")`"                                    1
+## 3 "I can make some simple data analysis scripts."                          7
+## 4 "I've made 'complicated' analysis scripts."                              5
+## 5 "I have created reusable data analysis scripts, for different data ~     1
+## 6 "I have created my own R packages."                                      0
+## 7 "I am the wealth of all R knowledge, Hadley Wickham asks me perosna~     0
+```
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+* ggplot(aes(x = n, y = answer, fill = answer))
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_07_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+* guides(fill = "none")
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_08_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+* geom_col()
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_09_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+* scale_y_discrete(
+*   breaks = answer_levels,
+*   labels = str_wrap(answer_levels, 50)
+* )
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_10_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels,
+    labels = str_wrap(answer_levels, 50)
+  ) +
+* scale_x_continuous(
+*   expand = expansion(mult = c(0, 0.1)),
+*   breaks = c(0, 2, 4, 6)
+* )
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_11_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels,
+    labels = str_wrap(answer_levels, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.1)),
+    breaks = c(0, 2, 4, 6)
+  ) +
+* labs(
+*   y = "",
+*   x = "",
+*   title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
+*   )
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_12_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels,
+    labels = str_wrap(answer_levels, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.1)),
+    breaks = c(0, 2, 4, 6)
+  ) +
+  labs(
+    y = "",
+    x = "",
+    title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
+    ) +
+* scale_fill_manual(values = MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7))
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_13_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels,
+    labels = str_wrap(answer_levels, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.1)),
+    breaks = c(0, 2, 4, 6)
+  ) +
+  labs(
+    y = "",
+    x = "",
+    title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
+    ) +
+  scale_fill_manual(values = MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7)) +
+* theme_classic(base_size = 13)
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_14_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels,
+    labels = str_wrap(answer_levels, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.1)),
+    breaks = c(0, 2, 4, 6)
+  ) +
+  labs(
+    y = "",
+    x = "",
+    title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
+    ) +
+  scale_fill_manual(values = MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7)) +
+  theme_classic(base_size = 13) +
+* geom_text(aes(label = n, x = n + 0.2), size = 5)
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_15_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## How did I do it?
+.panel1-forms-example-plot-auto[
+
+```r
+df %&gt;%
+  select(ID, `How would you describe (be kind to yourself!) your skill levels in R?`) %&gt;%
+  rename(
+    answer = 2
+  ) %&gt;%
+  mutate(
+    answer = factor(answer, levels = answer_levels),
+  ) %&gt;%
+  group_by(answer) %&gt;%
+  count(answer, .drop = FALSE) %&gt;%
+  ggplot(aes(x = n, y = answer, fill = answer)) +
+  guides(fill = "none") +
+  geom_col() +
+  scale_y_discrete(
+    breaks = answer_levels,
+    labels = str_wrap(answer_levels, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.1)),
+    breaks = c(0, 2, 4, 6)
+  ) +
+  labs(
+    y = "",
+    x = "",
+    title = "1. How would you describe (be kind to yourself!) your skill levels in R?"
+    ) +
+  scale_fill_manual(values = MetBrewer::met.brewer(MetBrewer::colorblind_palettes[4], 7)) +
+  theme_classic(base_size = 13) +
+  geom_text(aes(label = n, x = n + 0.2), size = 5) +
+* theme(
+*   plot.title.position = "plot",
+*   axis.text.y = element_text(hjust = 0, size = 9),
+*   axis.ticks.y = element_blank()
+* )
+```
+]
+ 
+.panel2-forms-example-plot-auto[
+&lt;img src="index_files/figure-html/forms-example-plot_auto_16_output-1.png" width="100%" /&gt;
+]
+
+&lt;style&gt;
+.panel1-forms-example-plot-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-forms-example-plot-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-forms-example-plot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -281,21 +927,586 @@ If you are still learning you way around `{ggplot2}`, then use [`{esquisse}`](ht
 
 ---
 
-class: center, middle
-&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="500px" alt="Fuzzy cartoon monsters in white gloves and uniforms hanging multiple plots together on a wall, with an artist monster wearing a beret and smock directing them to the correct orientation. There is a blueprint plan on the wall showing how the plots should be arranged. Stylized title font reads 'patchwork - combine &amp; arrange your ggplots!'"&gt;
+
+---
+## Assemble Whole Figures
+.pull-left[
+
+- Stitch together multiple plots, into one figure. [`{Patchwork}`](https://patchwork.data-imaginist.com/) takes care of the alignments, lettering and layout.
+
+- _Just Works_.
+
+- Alternatives: [`{cowplot}`](https://wilkelab.org/cowplot/)
+]
 .pull-right[
+
+&lt;middle&gt;&lt;center&gt;&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/patchwork_1.jpg" height="300" alt="Fuzzy cartoon monsters in white gloves and uniforms hanging multiple plots together on a wall, with an artist monster wearing a beret and smock directing them to the correct orientation. There is a blueprint plan on the wall showing how the plots should be arranged. Stylized title font reads 'patchwork - combine &amp; arrange your ggplots!'"&gt;
+
 ###### [@allisonhorst](https://twitter.com/allisonhorst)
 ]
+
+
+
+
+
+
 ---
-## Tools for Assembling Plots
+  
+  count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
 
-- [{Patchwork}](https://patchwork.data-imaginist.com/) - Assembling separate plots into one overall figure.
+```r
+*library(patchwork)
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
 ---
-## Patchwork
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
 
-&gt; It just works.
+```r
+library(patchwork)
+*library(ggplot2)
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+*ggplot(mtcars, aes(mpg, wt, colour = factor(cyl)))
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_03_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+* geom_point()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_04_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+* theme_classic()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_05_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+* labs(title = "Some title goes here")
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_06_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+* labs(
+*   x = "Miles per Gallon",
+*   y = "Weight (kg)"
+* ) -&gt; p1
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+*ggplot(mtcars, aes(cyl, fill = factor(cyl)))
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_08_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+* geom_bar()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_09_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+* theme_classic()
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_10_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+* labs(title = "A title here as well")
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_11_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+* labs(x = "Engine Cylinders") -&gt; p2
+```
+]
+ 
+.panel2-test-plot-auto[
+
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+*wrap_plots(p1, p2)
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_13_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+wrap_plots(p1, p2) +
+* plot_layout(guides = "collect")
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_14_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+* plot_annotation(
+*   tag_levels = "A",
+*   tag_suffix = ")"
+* )
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_15_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Assembling Plots
+.panel1-test-plot-auto[
+
+```r
+library(patchwork)
+library(ggplot2)
+
+ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Some title goes here") +
+  labs(
+    x = "Miles per Gallon",
+    y = "Weight (kg)"
+  ) -&gt; p1
+
+ggplot(mtcars, aes(cyl, fill = factor(cyl))) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "A title here as well") +
+  labs(x = "Engine Cylinders") -&gt; p2
+
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+  plot_annotation(
+    tag_levels = "A",
+    tag_suffix = ")"
+  )
+```
+]
+ 
+.panel2-test-plot-auto[
+&lt;img src="index_files/figure-html/test-plot_auto_16_output-1.png" width="100%" /&gt;
+]
+
+&lt;style&gt;
+.panel1-test-plot-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-test-plot-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-test-plot-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
 
 
+
+
+
+---
+  
+  count: false
+ 
+## Controlling the Layout
+.panel1-patchwork2-auto[
+
+```r
+*wrap_plots(p1, p2)
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_01_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Controlling the Layout
+.panel1-patchwork2-auto[
+
+```r
+wrap_plots(p1, p2) +
+* plot_layout(guides = "collect")
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_02_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Controlling the Layout
+.panel1-patchwork2-auto[
+
+```r
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+* plot_layout(design = "A##B")
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_03_output-1.png" width="100%" /&gt;
+]
+
+---
+count: false
+ 
+## Controlling the Layout
+.panel1-patchwork2-auto[
+
+```r
+wrap_plots(p1, p2) +
+  plot_layout(guides = "collect") +
+  plot_layout(design = "A##B") +
+* plot_layout(ncol = 1)
+```
+]
+ 
+.panel2-patchwork2-auto[
+&lt;img src="index_files/figure-html/patchwork2_auto_04_output-1.png" width="100%" /&gt;
+]
+
+&lt;style&gt;
+.panel1-patchwork2-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-patchwork2-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-patchwork2-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+---
+## What can you {ggplot2} do?
+
+Have a look at https://exts.ggplot2.tidyverse.org/gallery/
+
+&lt;iframe src="https://exts.ggplot2.tidyverse.org/gallery/" width="100%" height="450px" borderColor="0"&gt;&lt;iframe&gt;
 ---
 List of packages
 - patchwork
